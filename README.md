@@ -52,7 +52,12 @@ Your users should be able to:
 
 ### What I learned
 
-- [ ] Add the things you learned through the proccess of building this project
+- I learned how to create an **@astro** project from Zero
+- I discover the installation and configuration process of the library **tailwind CSS**.
+- There was used **DeepSeek AI** to generate the first nav bar template and the functioning of the one in order to open and close the menu whether by a click or by the pressing of a key
+- Adopted the idea of using typscript to secure the way you declare variables in your astro project and use them throughout the project
+- There has been learned how to configure a custom tailwind css file, in order to use custom variables of preference and a new font imported from Google Fonts
+- I could learn how to import SVGs successfully while understanding that a resource contains an object and you can select a property of that object
 
 ### Continued development
 
