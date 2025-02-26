@@ -1,0 +1,158 @@
+---
+import images from "../constants/products/images";
+---
+
+<div class="relative group">
+  <!-- Carousel Container -->
+  <div
+    id="carousel"
+    class="relative overflow-hidden aspect-square md:aspect-video"
+  >
+    {
+      images.map((image, index) => (
+        <div
+          id={`slide-${index}`}
+          class={`absolute inset-0 transition-opacity duration-300 ${index === 0 ? "opacity-100" : "opacity-0"}`}
+        >
+          <img
+            src={image}
+            alt={`Product view ${index + 1}`}
+            class="w-full h-full object-cover"
+          />
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Navigation Controls -->
+  <div class="absolute inset-0 flex items-center justify-between p-4">
+    <!-- Previous Button -->
+    <button
+      id="prev-button"
+      class="h-8 w-8 rounded-full bg-white/80 shadow-md hover:bg-white transition-colors flex items-center justify-center cursor-pointer"
+      aria-label="Previous image"
+    >
+      <svg
+        class="w-4 h-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 19l-7-7 7-7"></path>
+      </svg>
+    </button>
+
+    <!-- Next Button -->
+    <button
+      id="next-button"
+      class="h-8 w-8 rounded-full bg-white/80 shadow-md hover:bg-white transition-colors flex items-center justify-center cursor-pointer"
+      aria-label="Next image"
+    >
+      <svg
+        class="w-4 h-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 5l7 7-7 7"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Indicators -->
+  <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+    {
+      images.map((_, index) => (
+        <button
+          onclick={`goToSlide(${index})`}
+          class={`h-2 w-2 rounded-full transition-all ${index === 0 ? "bg-white scale-125" : "bg-white/50"}`}
+          aria-label={`Go to slide ${index + 1}`}
+        />
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  let currentSlide = 0;
+  const totalSlides = 4;
+  const nextButton = document.getElementById("next-button");
+  const prevButton = document.getElementById("prev-button");
+
+  function updateSlide() {
+    // Update images
+    document.querySelectorAll('[id^="slide-"]').forEach((slide, index) => {
+      slide.classList.toggle("opacity-0", index !== currentSlide);
+    });
+
+    // Update indicators
+    document
+      .querySelectorAll('[aria-label^="Go to slide"]')
+      .forEach((indicator, index) => {
+        indicator.classList.toggle("bg-white/50", index !== currentSlide);
+        indicator.classList.toggle("bg-white", index === currentSlide);
+        indicator.classList.toggle("scale-125", index === currentSlide);
+      });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateSlide();
+  }
+
+  function previousSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateSlide();
+  }
+
+  function goToSlide(index) {
+    currentSlide = index;
+    updateSlide();
+  }
+
+  // Add keyboard navigation
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") nextSlide();
+    if (e.key === "ArrowLeft") previousSlide();
+  });
+
+  // Add touch/swipe support
+  let touchStartX = 0;
+  const carousel = document.getElementById("carousel");
+
+  carousel.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+  });
+
+  carousel.addEventListener("touchend", (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > 50) {
+      diff > 0 ? nextSlide() : previousSlide();
+    }
+  });
+
+  // Add click event listener to the carousel
+  nextButton?.addEventListener("click", nextSlide);
+  prevButton?.addEventListener("click", previousSlide);
+</script>
+
+<style>
+  /* Optional: Add smooth transitions */
+  [id^="slide-"] {
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  [aria-label^="Go to slide"] {
+    transition: all 0.3s ease;
+  }
+</style>
