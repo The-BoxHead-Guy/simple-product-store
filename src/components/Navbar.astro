@@ -1,5 +1,6 @@
 ---
 import navLinks from "../constants/navLinks";
+import avatar from "/public/images/image-avatar.png";
 ---
 
 <nav class="fixed top-0 w-full bg-white shadow-md z-50">
@@ -67,7 +68,7 @@ import navLinks from "../constants/navLinks";
           >
         </button>
         <img
-          src="/images/avatar.png"
+          src={avatar.src}
           alt="User profile"
           class="w-8 h-8 rounded-full border-2 border-transparent hover:border-orange-500 transition-colors"
         />
