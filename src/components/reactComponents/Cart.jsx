@@ -2,7 +2,10 @@ import { useState } from "react";
 
 const Cart = () => {
   return (
-    <div className="fixed z-10 w-full min-h-1/6 h-64 max-h-1/3 mx-auto font-kumbh">
+    <div
+      className="hidden fixed z-10 w-full min-h-1/6 h-64 max-h-1/3 mx-auto font-kumbh"
+      id="cart"
+    >
       <div className="m-4 bg-white rounded-lg h-full">
         <div className="p-4 flex flex-col h-full">
           <header className="p-2 pb-6 ">
