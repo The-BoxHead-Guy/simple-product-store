@@ -1,6 +1,6 @@
 import { useState } from "react";
-import iconMinus from "/public/images/icon-minus.svg";
-import iconPlus from "/public/images/icon-plus.svg";
+import iconMinus from "../../assets/icons/icon-minus.svg";
+import iconPlus from "../../assets/icons/icon-plus.svg";
 
 const Counter = ({ increase, decrease, quantity }) => {
   return (

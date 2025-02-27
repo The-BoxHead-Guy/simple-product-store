@@ -1,5 +1,5 @@
 import Counter from "./Counter";
-import iconCart from "/public/images/icon-cart.svg";
+import iconCart from "../../assets/icons/icon-cart.svg";
 import { useState } from "react";
 
 const AddToCartButton = () => {
