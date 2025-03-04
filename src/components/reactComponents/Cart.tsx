@@ -6,8 +6,6 @@ import removeIcon from "../../assets/icons/icon-delete.svg";
 export default function CartDisplay() {
   const { isOpen, items, removeItem, toggleCart } = useCartStore();
 
-  console.log(items);
-
   if (!isOpen) return null;
 
   return (
