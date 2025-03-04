@@ -1,9 +1,12 @@
 import Counter from "./Counter";
 import iconCart from "../../assets/icons/icon-cart.svg";
 import { useState } from "react";
+import { useCartStore } from "../../stores/cartStore";
+import product from "../../constants/products/properties";
 
 const AddToCartButton = () => {
   const [quantity, setQuantity] = useState(0);
+  const { addItem } = useCartStore();
 
   const increase = () => setQuantity(quantity + 1);
   const decrease = () => {
@@ -12,9 +15,11 @@ const AddToCartButton = () => {
     }
   };
 
-  const handleAddToCart = () => {
-    // Logic to add items to cart
-    console.log(`Added ${quantity} items to cart`);
+  const newProduct = {
+    id: product.id,
+    name: product.title,
+    price: product.price,
+    image: product.image,
   };
 
   return (
@@ -22,7 +27,7 @@ const AddToCartButton = () => {
       <Counter increase={increase} decrease={decrease} quantity={quantity} />
 
       <button
-        onClick={handleAddToCart}
+        onClick={() => addItem(newProduct, quantity)}
         className="w-full bg-primary text-gray-800 font-bold py-4 rounded-lg flex items-center justify-center gap-3 cursor-pointer"
       >
         <img src={iconCart.src} alt="Add to cart" />
