@@ -1,11 +1,21 @@
 ---
-import Welcome from "../components/Welcome.astro";
+import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
-import "../styles/global.css";
+import Cart from "../components/reactComponents/Cart";
+import Carousel from "../components/Carousel.astro";
+import Description from "../components/Description.astro";
+import product from "../constants/products/properties";
+import AddToCartButton from "../components/reactComponents/AddToCartButton";
 ---
 
 <Layout>
+  <Cart client:load />
+
   <Navbar />
-  <Welcome />
+  <Carousel />
+  <main class="p-8 w-full h-full flex flex-col gap-8 md:gap-16">
+    <Description {...product} />
+    <AddToCartButton client:visible />
+  </main>
 </Layout>

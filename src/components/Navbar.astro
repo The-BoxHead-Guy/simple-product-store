@@ -1,6 +1,9 @@
 ---
 import navLinks from "../constants/navLinks";
+import CartButton from "../components/reactComponents/buttons/CartButton";
+
 import avatar from "/public/images/image-avatar.png";
+import menuIcon from "../assets/icons/icon-menu.svg";
 ---
 
 <nav class="fixed top-0 w-full bg-white shadow-md z-50">
@@ -14,19 +17,7 @@ import avatar from "/public/images/image-avatar.png";
           aria-label="Open menu"
           aria-expanded="false"
         >
-          <svg
-            class="h-6 w-6 text-gray-600 menu-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
+          <img src={menuIcon.src} alt="" />
         </button>
         <h1 class="text-2xl font-bold text-gray-900">SNEAKERS</h1>
       </div>
@@ -47,26 +38,7 @@ import avatar from "/public/images/image-avatar.png";
 
       <!-- Right Side -->
       <div class="flex items-center gap-4">
-        <button class="relative" aria-label="Cart">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6 text-gray-600"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-            ></path>
-          </svg>
-          <span
-            class="absolute -top-2 -right-2 bg-orange-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center"
-            >3</span
-          >
-        </button>
+        <CartButton client:load />
         <img
           src={avatar.src}
           alt="User profile"

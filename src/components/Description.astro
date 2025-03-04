@@ -1,0 +1,40 @@
+---
+// components/ProductDescription.astro
+const { company, title, description, price, originalPrice, discount } =
+  Astro.props;
+---
+
+<div class="space-y-4 md:space-y-6">
+  <!-- Company Name -->
+  <h2 class="text-sm font-bold text-gray-500 uppercase tracking-wider">
+    {company}
+  </h2>
+
+  <!-- Product Title -->
+  <h1 class="text-3xl md:text-4xl font-bold text-gray-900">
+    {title}
+  </h1>
+
+  <!-- Product Description -->
+  <p class="text-gray-500/95 leading-relaxed font-normal">
+    {description}
+  </p>
+
+  <!-- Pricing Section -->
+  <div class="flex flex-wrap items-center justify-between gap-4">
+    <!-- Current Price & Discount -->
+    <div class="flex items-center gap-4">
+      <span class="text-3xl font-bold text-gray-900">
+        ${price.toFixed(2)}
+      </span>
+      <span class="px-2 py-1 bg-gray-900/90 text-white font-bold rounded-md">
+        {discount}%
+      </span>
+    </div>
+
+    <!-- Original Price -->
+    <span class="text-lg text-gray-400 line-through font-semibold">
+      ${originalPrice.toFixed(2)}
+    </span>
+  </div>
+</div>
