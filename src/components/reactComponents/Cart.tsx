@@ -30,7 +30,7 @@ export default function CartDisplay() {
             </p>
           ) : (
             items.map((item) => (
-              <>
+              <div>
                 <div
                   key={item.id}
                   className="flex items-center justify-between pb-2"
@@ -69,7 +69,7 @@ export default function CartDisplay() {
                     Checkout
                   </button>
                 </div>
-              </>
+              </div>
             ))
           )}
         </div>
