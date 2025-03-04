@@ -1,13 +1,7 @@
-type Product = {
-  company: string;
-  title: string;
-  description: string;
-  price: number;
-  originalPrice: number;
-  discount: number;
-};
+import type { Product } from "../../types/Product";
 
 const product: Product = {
+  id: 1,
   company: "Sneaker Company",
   title: "Fall Limited Edition Sneakers",
   description:
@@ -15,6 +9,7 @@ const product: Product = {
   price: 125.0,
   originalPrice: 250.0,
   discount: 50,
+  image: "/images/image-product-1.jpg",
 };
 
 export default product;
