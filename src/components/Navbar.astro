@@ -4,11 +4,14 @@ import CartButton from "../components/reactComponents/buttons/CartButton";
 
 import avatar from "/public/images/image-avatar.png";
 import menuIcon from "../assets/icons/icon-menu.svg";
+import logo from "../assets/svg/logo.svg";
 ---
 
-<nav class="fixed top-0 w-full bg-white shadow-md z-50">
-  <div class="container mx-auto px-4">
-    <div class="flex items-center justify-between h-16">
+<nav class="fixed top-0 w-full bg-white shadow-md z-50 md:shadow-none">
+  <div class="container mx-auto px-4 md:w-10/12">
+    <div
+      class="flex items-center justify-between h-16 md:justify-start md:h-32 md:gap-8 md:border-b-1 md:border-gray-200"
+    >
       <!-- Left Side -->
       <div class="flex items-center gap-6">
         <button
@@ -19,11 +22,11 @@ import menuIcon from "../assets/icons/icon-menu.svg";
         >
           <img src={menuIcon.src} alt="" />
         </button>
-        <h1 class="text-2xl font-bold text-gray-900">SNEAKERS</h1>
+        <img src={logo.src} alt="" />
       </div>
 
       <!-- Desktop Menu (hidden on mobile) -->
-      <div class="hidden md:flex md:items-center md:gap-6">
+      <div class="hidden md:flex md:items-center md:gap-8">
         {
           navLinks.map((link) => (
             <a
@@ -37,12 +40,12 @@ import menuIcon from "../assets/icons/icon-menu.svg";
       </div>
 
       <!-- Right Side -->
-      <div class="flex items-center gap-4">
+      <div class="flex items-center gap-4 md:gap-8 md:ml-auto">
         <CartButton client:load />
         <img
           src={avatar.src}
           alt="User profile"
-          class="w-8 h-8 rounded-full border-2 border-transparent hover:border-orange-500 transition-colors"
+          class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-transparent hover:border-orange-500 transition-colors"
         />
       </div>
     </div>
