@@ -14,13 +14,13 @@ import AddToCartButton from "../components/reactComponents/AddToCartButton";
 
   <Navbar />
   <main
-    class="p-8 w-full h-full flex flex-col gap-8 mt-16 md:gap-16 md:items-center md:min-h-dvh md:justify-center md:p-0 md:m-0"
+    class="p-8 w-full h-full flex flex-col gap-8 mt-16 md:gap-16 md:items-center md:min-h-dvh md:p-0 md:m-0"
   >
     <div
-      class="md:grid md:grid-cols-2 md:gap-32 md:w-11/12 md:px-32 md:h-164 md:items-center lg:w-9/12"
+      class="md:grid md:grid-cols-2 md:place-items-center md:gap-20 lg:gap-24 md:w-11/12 md:px-18 md:h-164 lg:w-10/12"
     >
       <Carousel client:load />
-      <div class="flex flex-col gap-8">
+      <div class="flex flex-col gap-8 justify-center lg:w-12/12 max-w-xl">
         <Description {...product} />
         <AddToCartButton client:visible />
       </div>

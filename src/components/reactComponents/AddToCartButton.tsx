@@ -23,12 +23,12 @@ const AddToCartButton = () => {
   };
 
   return (
-    <div className="flex items-center justify-between gap-4 w-full flex-col">
+    <div className="flex items-center justify-between gap-4 w-full flex-col xl:flex-row">
       <Counter increase={increase} decrease={decrease} quantity={quantity} />
 
       <button
         onClick={() => addItem(newProduct, quantity)}
-        className="w-full bg-primary text-gray-800 font-bold py-4 rounded-lg flex items-center justify-center gap-3 cursor-pointer"
+        className="w-full bg-primary text-gray-800 font-bold py-4 rounded-lg flex items-center justify-center gap-3 cursor-pointer lg:shrink-1"
       >
         <img src={iconCart.src} alt="Add to cart" />
         Add to Cart

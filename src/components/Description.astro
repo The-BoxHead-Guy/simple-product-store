@@ -21,7 +21,9 @@ const { company, title, description, price, originalPrice, discount } =
   </p>
 
   <!-- Pricing Section -->
-  <div class="flex flex-wrap items-center justify-between gap-4">
+  <div
+    class="flex flex-wrap items-center justify-between gap-4 lg:flex-col lg:items-start"
+  >
     <!-- Current Price & Discount -->
     <div class="flex items-center gap-4">
       <span class="text-3xl font-bold text-gray-900">
@@ -33,8 +35,8 @@ const { company, title, description, price, originalPrice, discount } =
     </div>
 
     <!-- Original Price -->
-    <span class="text-lg text-gray-400 line-through font-semibold">
+    <p class="text-lg text-gray-400 line-through font-semibold">
       ${originalPrice.toFixed(2)}
-    </span>
+    </p>
   </div>
 </div>

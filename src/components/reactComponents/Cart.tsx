@@ -9,8 +9,8 @@ export default function CartDisplay() {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed top-16 right-0 bg-transparent shadow-lg h-screen p-4 text-gray-700 z-10 w-full">
-      <div className="p-6 bg-white rounded-lg shadow-lg relative">
+    <div className="fixed top-16 right-0 bg-transparent shadow-lg h-screen p-4 text-gray-700 z-60 w-full md:w-5/12 lg:w-4/12 xl:w-3/10 md:top-26 md:right-12 md:shadow-none" >
+      <div className="p-6 bg-white rounded-lg shadow-lg relative md:shadow-xl">
         <div className="flex justify-between items-center pr-2 pb-4">
           <h2 className="text-lg font-bold font-kumbh">Cart</h2>
           <button

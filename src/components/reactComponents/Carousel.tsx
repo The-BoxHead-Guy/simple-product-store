@@ -46,7 +46,7 @@ const Carousel = () => {
   }, [handleKeyDown]);
 
   return (
-    <div className="relative group">
+    <div className="relative group flex flex-col justify-center gap-4 mt-8 md:min-w-88 md:max-w-102 lg:w-9/12 md:w-11/12">
       {/* Carousel Container */}
       <div
         id="carousel"
@@ -113,7 +113,7 @@ const Carousel = () => {
             key={`indicator-${index}`}
             onClick={() => updateSlide(index)}
             className={`h-2 w-2 rounded-full transition-all ${
-              index === currentSlide ? 'bg-white scale-125' : 'bg-white/50'
+              index === currentSlide ? "bg-white scale-125" : "bg-white/50"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
@@ -121,7 +121,7 @@ const Carousel = () => {
       </div>
 
       {/* Thumbnail Grid for MD and above */}
-      <div className="hidden md:grid md:grid-cols-4 md:gap-4 md:mt-4">
+      <div className="hidden md:grid md:grid-cols-4 md:gap-8 md:mt-4">
         {images.map((image, index) => (
           <div
             key={`thumbnail-${index}`}
